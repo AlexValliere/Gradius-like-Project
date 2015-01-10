@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 16:00:18 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 17:03:47 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ class PlayerShip : public AShip {
 	protected:
 		static int	_index;
 		int			_id;
-		int			_x;
-		int			_y;
 };
 
 #endif

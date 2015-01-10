@@ -6,12 +6,33 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:12:13 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 16:18:50 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 16:58:32 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "../headers/AMobileEntity.class.hpp"
+
+int		AMobileEntity::_index = 0;
+
+AMobileEntity::AMobileEntity(void) : _id(AMobileEntity::_index), _x(0), _y(0) {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "AMobileEntity #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
+
+	AMobileEntity::_index++;
+
+	return ;
+}
+
+AMobileEntity::AMobileEntity(int x, int y) : _id(AMobileEntity::_index), _x(x), _y(y) {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "AMobileEntity #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
+
+	AMobileEntity::_index++;
+
+	return ;
+}
+
 
 AMobileEntity::~AMobileEntity(void) {
 	if (DebugEntity::getDebug() == true)

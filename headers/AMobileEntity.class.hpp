@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:12:24 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 16:14:30 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 16:56:50 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 class AMobileEntity : public DebugEntity {
 	public:
+		AMobileEntity();
+		AMobileEntity(int x, int y);
 		~AMobileEntity();
 
 		virtual void		moveOnX(int i);

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hades <hades@student.42.fr>                +#+  +:+       +#+         #
+#    By: alex <alex@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/07 11:47:18 by alex              #+#    #+#              #
-#    Updated: 2015/01/10 16:31:21 by hades            ###   ########.fr        #
+#    Updated: 2015/01/10 18:27:29 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC			=	sources/AMobileEntity.class.cpp \
 				sources/AShip.class.cpp \
 				sources/DebugEntity.class.cpp \
 				sources/EnnemyShip.class.cpp \
+				sources/Map.class.cpp \
 				sources/PlayerShip.class.cpp \
 				sources/Projectile.class.cpp \
 				sources/main.cpp

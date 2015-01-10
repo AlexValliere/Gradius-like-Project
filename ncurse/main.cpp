@@ -63,22 +63,22 @@
 // 	return (0);
 // }
 
-int		main( void )
-{
- 	initscr();					// start curses mode ;
-	keypad(stdscr, true);		// set the keyboard as standard one so special touch are usable
- 	curs_set(0);				// hide cursor
- 	start_color();				// enable de set color on the term
- 	init_pair(1, COLOR_RED, COLOR_BLUE); // set a pair (foreground, backgroud color) and call it as the "1" pair
+// int		main( void )
+// {
+//  	initscr();					// start curses mode ;
+// 	keypad(stdscr, true);		// set the keyboard as standard one so special touch are usable
+//  	curs_set(0);				// hide cursor
+//  	start_color();				// enable de set color on the term
+//  	init_pair(1, COLOR_RED, COLOR_BLUE); // set a pair (foreground, backgroud color) and call it as the "1" pair
 
 
-	attron(COLOR_PAIR(1));					// set the pair available
-	addch('a');						// addch is printw for char
-	attroff(COLOR_PAIR(1));				// unset the display modification
-	refresh();
-	nodelay(stdscr, true); 			// means that the programe will not wait the input for the getch() function
-	getch();
-	usleep(1000000);
-	endwin();
-	return (0);
-}
+// 	attron(COLOR_PAIR(1));					// set the pair available
+// 	addch('a');						// addch is printw for char
+// 	attroff(COLOR_PAIR(1));				// unset the display modification
+// 	refresh();
+// 	nodelay(stdscr, true); 			// means that the programe will not wait the input for the getch() function
+// 	getch();
+// 	usleep(1000000);
+// 	endwin();
+// 	return (0);
+// }

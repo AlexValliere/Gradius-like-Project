@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:31:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 18:20:54 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 20:05:47 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 #include <unistd.h>
 #include "../headers/DebugEntity.class.hpp"
 #include "../headers/EnnemyShip.class.hpp"
+#include "../headers/Map.class.hpp"
 #include "../headers/PlayerShip.class.hpp"
 #include "../headers/Projectile.class.hpp"
 
 int		main(void)
 {
-	int x, y;
-	int c;
+	int		c, x, y;
+	Map		map;
+
 	initscr();
 	// nodelay(stdscr, true); 			
 	keypad(stdscr, true);

@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:40 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 20:04:12 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 20:14:08 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ class Map : public DebugEntity {
 		Map(void);
 		~Map();
 
+		void	drawMap(void);
+
 		int		getContentType(int y, int x) const;
 		int		getContentId(int y, int x) const;
+		void		setContentType(int y, int x, int value);
+		void		setContentId(int y, int x, int value);
 
 	private:
 		int		_map[24][80][2];	// _map[42][42][0] = 0 - Empty

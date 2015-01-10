@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 17:03:47 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 21:04:53 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,15 @@
 
 # include "AShip.class.hpp"
 # include "Projectile.class.hpp"
+# include "Map.class.hpp"
 
 class PlayerShip : public AShip {
 	public:
 		PlayerShip();
 		PlayerShip(int x, int y);
 		~PlayerShip();
+
+		int		moveShip(Map *map);
 
 		Projectile*	openFire(void);
 

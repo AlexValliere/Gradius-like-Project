@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:31:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 20:36:55 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 21:10:09 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 
 int		main(void)
 {
-	int			c, x, y;
+	int			c = 0;
+	int			x, y;
 	Map			map;
 	PlayerShip	player(2, 11);
 
@@ -46,15 +47,18 @@ int		main(void)
 	move(0, 0);
 	printw("Sreen's dimension: %dx%d", x, y);
 
-	while ( (c = getch()) != 27 )
+	while (c != 27)
 	{
 		map.drawMap();
-		// move(y/2, x/2);
-		// printw(" code key : %d, key is %c", c, c);
+
+		move(y/2, x/2);
+		printw(" code key : %d, key is %c", c, c);
 		move(y - 1, x - 25);
 		printw("press a key (esc to exit)");
 		refresh();
-		getch();
+
+		c = player.moveShip(&map);
+		// getch();
 	}
 
     endwin();

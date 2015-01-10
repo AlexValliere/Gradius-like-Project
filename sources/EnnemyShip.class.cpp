@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 17:01:28 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 17:12:16 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		EnnemyShip::_index = 0;
 
-EnnemyShip::EnnemyShip(void) : AShip() {
+EnnemyShip::EnnemyShip(void) : AShip(), _id(EnnemyShip::_index) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
 
@@ -24,7 +24,7 @@ EnnemyShip::EnnemyShip(void) : AShip() {
 	return ;
 }
 
-EnnemyShip::EnnemyShip(int x, int y) : AShip(x, y) {
+EnnemyShip::EnnemyShip(int x, int y) : AShip(x, y), _id(EnnemyShip::_index) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
 

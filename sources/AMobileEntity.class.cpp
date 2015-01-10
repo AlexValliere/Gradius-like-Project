@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:12:13 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 16:58:32 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 17:27:36 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,16 @@
 
 int		AMobileEntity::_index = 0;
 
-AMobileEntity::AMobileEntity(void) : _id(AMobileEntity::_index), _x(0), _y(0) {
+AMobileEntity::AMobileEntity(void) : _id(AMobileEntity::_index++), _x(0), _y(0) {
 	if (DebugEntity::getDebug() == true)
-		std::cout << "AMobileEntity #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
-
-	AMobileEntity::_index++;
+		std::cout << "#" << this->_id << " - AMobileEntity()." << std::endl;
 
 	return ;
 }
 
 AMobileEntity::AMobileEntity(int x, int y) : _id(AMobileEntity::_index), _x(x), _y(y) {
 	if (DebugEntity::getDebug() == true)
-		std::cout << "AMobileEntity #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
-
-	AMobileEntity::_index++;
+		std::cout << "#" << this->_id << " - AMobileEntity(" << x << ", " << y << ")." << std::endl;
 
 	return ;
 }
@@ -36,14 +32,14 @@ AMobileEntity::AMobileEntity(int x, int y) : _id(AMobileEntity::_index), _x(x), 
 
 AMobileEntity::~AMobileEntity(void) {
 	if (DebugEntity::getDebug() == true)
-		std::cout << "AMobileEntity: Call to destructor." << std::endl;
+		std::cout << "#" << this->_id << " - ~AMobileEntity()." << std::endl;
 
 	return;
 }
 
 void		AMobileEntity::moveOnX(int i) {
 	if (DebugEntity::getDebug() == true)
-		std::cout << "AMobileEntity #" << this->_id << ": moveOnX(" << i << ") -> Moving from x=" << this->_x;
+		std::cout << "#" << this->_id << " - AMobileEntity::moveOnX(" << i << ") - Moving from x=" << this->_x;
 
 	this->_x += i;
 
@@ -55,9 +51,9 @@ void		AMobileEntity::moveOnX(int i) {
 
 void	AMobileEntity::moveOnY(int i) {
 	if (DebugEntity::getDebug() == true)
-		std::cout << "AMobileEntity #" << this->_id << ": moveOnY(" << i << ") -> Moving from y=" << this->_y;
+		std::cout << "#" << this->_id << " - AMobileEntity::moveOnY(" << i << ") - Moving from y=" << this->_y;
 
-	this->_x += i;
+	this->_y += i;
 
 	if (DebugEntity::getDebug() == true)
 		std::cout << " to y=" << this->_y <<"." << std::endl;

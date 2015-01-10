@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 16:26:04 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 17:09:55 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ class EnnemyShip : public AShip {
 	protected:
 		static int	_index;
 		int			_id;
-		int			_x;
-		int			_y;
 };
 
 #endif

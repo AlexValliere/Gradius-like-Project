@@ -1,0 +1,51 @@
+install:
+
+apt-get install libncurses5-dev
+
+
+Utilisation :
+
+//main.cpp
+
+#include <ncurses.h>
+
+//Makefile
+..
+LIBS = -lncurses                <= g++ avec $(LIBS) avec les .o
+..
+
+
+differentes fonctions et utilite :
+
+initscr();  => refresh tout le terminal et active ncurse sur l'affiche
+endwin();   => remet le terminal par default et desactive ncurse
+
+printw(string);   => affiche quelque chose sur le terminal ( fonction de curse.h)
+
+move(x, y); => bouge le curseur aux point x, y sachant que 0,0 est haut gauche
+
+mvprintw(x, y, string) => fusionne move et printw
+
+getch();		=> recupere le code key de la touche (on l'affiche comme un caractere pour l'afficher et comme un int pour voir le key code. la fonction retourne le key code.)
+
+noecho();	=> permet de ne pas afficher l'input
+
+raw();		=> permet de passer directemenet l'input au programme sans buffer
+
+addch();	=> permet d'afficher un caractere
+
+getmaxyx(stdscr, x, y);	=> permet definir la largeur et la hauteur max de l'ecran. En parametre stdscr = standardscreen (fenetre en cours), x et y sont des int dans lesquelles vont etre stocke les largeur et hauteur;
+
+attron(flags);	=> permet de modifier l'affichage des attributs (char string) en specifiant un flags ex A_BOLD va afficher le char en gras, A_REVERSE va afficher le char de la couleur du prompt et le fond de la couleur du char;
+attroff()       => desactive la modification de l'affichage;
+
+start_color(); => permet d'activer la modification de couleur dans le terminal
+init_pair(index, couleurfront, couleurback) => va cree une association de couleur sous l'index index. les couleurs sont des Macros ncurses ex : COLOR_RED
+index est un int compris en 1 et 7 pour rendre l'affichage effectif, on utilise attron(COLOR_PAIR(index));
+
+nodelay(stdscr, true); 	=> permet de continuer le programme meme si getch() n'est pas execute.
+
+keyboard(stdscr, true); => permet d'utiliser les input des caracteres speciaux
+
+curs_set(0);	=> cache le curseur
+

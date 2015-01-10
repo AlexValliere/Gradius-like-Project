@@ -3,16 +3,17 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: alex <alex@student.42.fr>                  +#+  +:+       +#+         #
+#    By: hades <hades@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/07 11:47:18 by alex              #+#    #+#              #
-#    Updated: 2015/01/10 16:22:20 by alex             ###   ########.fr        #
+#    Updated: 2015/01/10 16:31:21 by hades            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= exec
+NAME		= ft_retro
 CC			= g++
 CFLAGS		= -Wall -Werror -Wextra
+LIBS 		= -lncurses
 RM			= rm -rf
 
 SRC			=	sources/AMobileEntity.class.cpp \
@@ -28,7 +29,7 @@ OBJ			= $(SRC:.cpp=.o)
 all:		$(NAME)
 
 $(NAME):	$(OBJ)
-			$(CC) -o $(NAME) $(OBJ)
+			$(CC) -o $(NAME) $(OBJ) $(LIBS)
 
 clean:
 			$(RM) $(OBJ)

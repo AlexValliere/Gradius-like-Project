@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 20:20:20 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 20:26:26 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,39 @@ void	Map::drawMap(void) {
 		}
 	}
 }
+
+int		Map::getPlayerPosX(void) const {
+	int	x, y;
+	int	maxX = 80, maxY = 24;
+
+	for (y = 0; y < maxY; y++)
+	{
+		for (x = 0; x < maxX; x++)
+		{
+			if (this->getContentType(y, x) == 1) // Type 1 = playerShip
+				return x;
+		}
+	}
+
+	return -1; // Player not found
+}
+
+int		Map::getPlayerPosY(void) const {
+	int	x, y;
+	int	maxX = 80, maxY = 24;
+
+	for (y = 0; y < maxY; y++)
+	{
+		for (x = 0; x < maxX; x++)
+		{
+			if (this->getContentType(y, x) == 1) // Type 1 = playerShip
+				return y;
+		}
+	}
+
+	return -1; // Player not found
+}
+
 
 int		Map::getContentType(int y, int x) const {
 	return this->_map[y][x][0];

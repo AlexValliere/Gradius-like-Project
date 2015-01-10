@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:55:45 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 17:28:48 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 20:37:14 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ AShip::AShip(void) : AMobileEntity() {
 	return ;
 }
 
-AShip::AShip(int x, int y) : AMobileEntity(x,y) {
+AShip::AShip(int type, int x, int y) : AMobileEntity(type, x,y) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "AShip::AMobileEntity(" << x << ", " << y << ")." << std::endl;
 

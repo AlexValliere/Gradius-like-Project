@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 20:16:39 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/10 20:20:20 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	Map::drawMap(void) {
 		{
 			move(y, x);
 			if (this->getContentType(y, x) != 0)
-				printw("*");
+				printw(">");
 			else
 				printw(".");
 		}

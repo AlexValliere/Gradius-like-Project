@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 22:35:05 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 22:49:30 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ void	PlayerShip::openFire(Map & map) {
 	return ;
 }
 
-void	PlayerShip::moveProjectiles(Map & map, EnnemyShip (&ships)[1000]) {
+void	PlayerShip::moveProjectiles(Map & map, int * destroyEnnemyId) {
 	int	i;
 
 	if (this->_projectilesIndex >= 0)
@@ -182,9 +182,7 @@ void	PlayerShip::moveProjectiles(Map & map, EnnemyShip (&ships)[1000]) {
 							if (i + j <= 80)
 							{
 								if (map.getContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX() + j) > 5)
-								{
-									ships[map.getContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX())].setActive(false);
-								}
+									*destroyEnnemyId = map.getContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX() + j);
 								map.setContentType((this->_projectiles[i]).getY(), (this->_projectiles[i]).getX() + j, 0);
 								map.setContentId((this->_projectiles[i]).getY(), (this->_projectiles[i]).getX() + j, -1);
 							}

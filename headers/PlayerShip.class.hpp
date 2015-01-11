@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 22:31:37 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 22:48:35 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class PlayerShip : public AShip {
 		void		actionShip(Map & map, int const input);
 		void		openFire(Map & map);
 
-		void		moveProjectiles(Map & map, EnnemyShip (&ships)[1000]);
+		void		moveProjectiles(Map & map, int * destroyEnnemyId);
 
 	protected:
 		int			_id;

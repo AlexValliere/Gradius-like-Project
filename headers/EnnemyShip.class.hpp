@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   EnnemyShip.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 17:09:55 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 14:41:49 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class EnnemyShip : public AShip {
 	public:
-		EnnemyShip();
+		EnnemyShip( void );
 		EnnemyShip(int x, int y);
 		~EnnemyShip();
 

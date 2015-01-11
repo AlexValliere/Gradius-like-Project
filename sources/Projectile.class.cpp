@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:30:45 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 18:08:44 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 19:08:20 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int		Projectile::_index = 0;
 
-Projectile::Projectile(void) : AMobileEntity(), _id(Projectile::_index), _direction(0) {
+Projectile::Projectile(void) : AMobileEntity(), _id(Projectile::_index), _direction(0), _active(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "Projectile #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
 
@@ -25,7 +25,7 @@ Projectile::Projectile(void) : AMobileEntity(), _id(Projectile::_index), _direct
 	return ;
 }
 
-Projectile::Projectile(int direction, int x, int y) : AMobileEntity(3, x, y), _id(Projectile::_index), _direction(direction) {
+Projectile::Projectile(int active, int direction, int x, int y) : AMobileEntity(3, x, y), _id(Projectile::_index), _direction(direction), _active(active) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "Projectile #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
 
@@ -49,13 +49,25 @@ Projectile & Projectile::operator=(Projectile const & rhs) {
 	this->setId(rhs.getId());
 	this->setX(rhs.getX());
 	this->setY(rhs.getY());
+	this->setActive(rhs.getActive());
 
 	return *this;	
+}
+
+int			Projectile::getActive(void) const {
+
+	return this->_active;
 }
 
 int			Projectile::getDirection(void) const {
 
 	return this->_direction;
+}
+
+void		Projectile::setActive(int value) {
+	this->_active = value;
+
+	return ;
 }
 
 void		Projectile::setDirection(int value) {

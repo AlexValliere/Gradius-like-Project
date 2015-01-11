@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:54:32 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 16:20:45 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 19:08:08 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@
 class Projectile : public AMobileEntity {
 	public:
 		Projectile();
-		Projectile(int direction, int x, int y);
+		Projectile(int active, int direction, int x, int y);
 		~Projectile();
 
 		Projectile &	operator=(Projectile const & rhs);
 
+		int				getActive(void) const;
 		int				getDirection(void) const;
+		void			setActive(int value);
 		void			setDirection(int value);
 
 	protected:
 		static int	_index;
 		int			_id;
 		int			_direction; // -1: to the left - 0: do not move - 1: to the right
+		int			_active;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 18:41:27 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 19:11:10 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,49 +97,26 @@ void	PlayerShip::openFire(Map & map) {
 
 	if (canOpenFire)
 	{
-		if (this->_projectilesIndex == 26)
+		if (this->_projectilesIndex == 1000)
 		{
-			// Clean map from projectiles
-			for (int i = 0; i < 27; i++)
+			// Clean map from projectiles and disable projectiles
+			for (int i = 0; i < 1000; i++)
 			{
 				map.setContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX(), 0);
 				map.setContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX(), -1);
+				this->_projectiles[i].setActive(0);
 			}
-
-			// Destroy last projectile
-			this->_projectiles[this->_projectilesIndex].setDirection(0);
-			this->_projectiles[this->_projectilesIndex].setX(-1);
-			this->_projectiles[this->_projectilesIndex].setY(-1);
-
-			// Move array projectiles data
-			for (int i = 25; i >= 0; i--)
-			{
-				// this->_projectiles[i + 1] = this->_projectiles[i];
-				this->_projectiles[i + 1].setDirection(this->_projectiles[i].getDirection());
-				this->_projectiles[i + 1].setX(this->_projectiles[i].getX());
-				this->_projectiles[i + 1].setY(this->_projectiles[i].getY());
-			}
-
-			// Set projectiles on map
-			for (int i = 0; i < 27; i++)
-			{
-				map.setContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX(), 5);
-				map.setContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX(), -1);
-			}
-
-			this->_projectiles[0].setDirection(1);
-			this->_projectiles[0].setX(this->getX() + 1);
-			this->_projectiles[0].setY(this->getY());
-			map.setContentType(this->_projectiles[0].getY(), this->_projectiles[0].getX() + 1, 5);
-			map.setContentId(this->_projectiles[0].getY(), this->_projectiles[0].getX() + 1, -1);
+			this->_projectilesIndex = 0;
 		}
 		else
 		{
+			this->_projectiles[this->_projectilesIndex].setActive(1);
 			this->_projectiles[this->_projectilesIndex].setDirection(1);
 			this->_projectiles[this->_projectilesIndex].setX(this->getX() + 1);
 			this->_projectiles[this->_projectilesIndex].setY(this->getY());
 			map.setContentType(this->getY(), this->getX() + 1, 5);
 			map.setContentId(this->getY(), this->getX() + 1, -1);
+			this->_projectilesIndex++;
 		}
 
 		// if (DebugEntity::getDebug() == true)
@@ -147,9 +124,6 @@ void	PlayerShip::openFire(Map & map) {
 		// 	std::cout << "PlayerShip #" << this->_id << " opened fire from x=" << this->_x << "; y=" << this->_y << " creating a projectile at x=" << this->_projectiles[this->_projectilesIndex].getX() << "; y=" << this->_projectiles[this->_projectilesIndex].getY() << "." << std::endl;
 		// }
 		// mvprintw(21, 1, "PlayerShip #%d opened fire from x=%d;y=%d creating a proojectile at x=%d;y=%d.", this->_id, this->_x, this->_y, this->_projectiles[this->_projectilesIndex].getX(), this->_projectiles[this->_projectilesIndex].getY());
-
-		if (this->_projectilesIndex < 26)
-			this->_projectilesIndex++;
 	}
 	// else
 	// {
@@ -162,38 +136,28 @@ void	PlayerShip::openFire(Map & map) {
 
 void	PlayerShip::moveProjectiles(Map & map) {
 	int	i;
-	// int j;
 
 	if (this->_projectilesIndex >= 0)
 	{
 		for (i = 0; i < this->_projectilesIndex; i++)
 		{
-			// Si le projectile est à mouvement positif sur l'axe x
-			// if (this->_projectiles[i].getDirection() == 1)
-			// {
-				// Si le projectile est en bout de map
-				// if (this->_projectiles[i].getX() >= 80 - 2)
-				// {
-				// 	// Détruire le projectile
-				// 	for (j = i; j < this->_projectilesIndex - 1; j++)
-				// 	{
-				// 		this->_projectiles[j] = this->_projectiles[j + 1];
-				// 	}
-				// 	this->_projectiles[this->_projectilesIndex] = Projectile();
-				// 	this->_projectilesIndex--;
-				// 	--i;
-				// }
-				// else // Sinon on déplace le projectile
-				// {
-					map.setContentType((this->_projectiles[i]).getY(), (this->_projectiles[i]).getX(), 0);
-					map.setContentId((this->_projectiles[i]).getY(), (this->_projectiles[i]).getX(), -1);
+			if (this->_projectiles[i].getActive() == 1)
+			{
+				map.setContentType((this->_projectiles[i]).getY(), (this->_projectiles[i]).getX(), 0);
+				map.setContentId((this->_projectiles[i]).getY(), (this->_projectiles[i]).getX(), -1);
 
+				if (this->_projectiles[i].getX() + 3 > 80)
+				{
+					this->_projectiles[i].setActive(0);
+				}
+				else
+				{
 					this->_projectiles[i].moveOnX(3);
 
 					map.setContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX(), 5);
-					map.setContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX(), this->_projectiles[0].getId());
-				// }
-	// 		}
+					map.setContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX(), this->_projectiles[i].getId());
+				}
+			}
 		}
 	}
 }

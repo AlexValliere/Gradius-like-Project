@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 17:19:01 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 19:11:07 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class PlayerShip : public AShip {
 		int			_id;
 		static int	_index;
 		int			_projectilesIndex;
-		Projectile	_projectiles[27];
+		Projectile	_projectiles[1000];
 };
 
 #endif

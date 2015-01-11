@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 15:06:50 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 15:15:40 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,10 @@ void	PlayerShip::actionShip(Map & map, int const input) {
 			map.setContentType(this->getY() - 1, this->getX(), 1);
 			this->setY(this->getY() - 1);
 		}
+	}
+	else if (input == 32)
+	{
+		this->openFire();
 	}
 
 	return ;

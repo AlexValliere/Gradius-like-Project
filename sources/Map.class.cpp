@@ -6,7 +6,7 @@
 /*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 19:42:05 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 19:43:02 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	Map::drawMap(void) {
 				else if (this->getContentType(y, x) > 5)
 					printw("<");
 				else if (this->getContentType(y, x) == 5)
-					printw("o");
+					printw("-");
 				else
 					printw(" ");
 			}

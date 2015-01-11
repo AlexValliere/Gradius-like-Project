@@ -6,7 +6,7 @@
 /*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 14:06:58 by hades             #+#    #+#             */
-/*   Updated: 2015/01/11 18:41:55 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 19:12:30 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int		main(void)
 
 	int			ennemyornot = 6;
 	int			index_ennemy = 0;
-	int			trois = 5000;
-	EnnemyShip	tab[5000];
+	int			index = 1000;
+	EnnemyShip	tab[1000];
 
 	int			x, y;
 	Map			map;
@@ -58,15 +58,22 @@ int		main(void)
 	{
 		clear();
 		player.actionShip(map, input);
-		while ( trois >= 0) {
-			if (tab[trois].getActive()) {
-				tab[trois].moveShip(map, input);
+		while ( index >= 0) {
+			if ( tab[1000].getActive() ) {
+    			clear();
+    			mvprintw(12, 40, "YOU WIN !");
+    			sleep(3);
+    			endwin();
+    			return (0);
 			}
-			trois--;
+			if (tab[index].getActive()) {
+				tab[index].moveShip(map, input);
+			}
+			index--;
 		}
-		trois = 5000;
+		index = 1000;
 		if ( ennemyornot == 0 ) {
-			if (index_ennemy < 5000) {
+			if (index_ennemy < 1000) {
 				tab[index_ennemy].setActive(true);
 				index_ennemy++;
 			}

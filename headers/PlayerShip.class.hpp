@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:39:22 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 15:04:37 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,15 @@ class PlayerShip : public AShip {
 		PlayerShip(int x, int y);
 		~PlayerShip();
 
-		void		moveShip(Map & map, int const input);
+		void		actionShip(Map & map, int const input);
 
 		void		openFire(void);
 
 	protected:
-		static int	_index;
-		static int	_projectilesIndex;
 		int			_id;
-		Projectile	projectiles[27];
+		static int	_index;
+		int			_projectilesIndex;
+		Projectile	_projectiles[27];
 };
 
 #endif

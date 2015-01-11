@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:31:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:40:29 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 14:49:06 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		main(void)
 
 	while ((input = getch()) != 27)
 	{
-		player.moveShip(map, input);
+		player.actionShip(map, input);
 
 		clear();
 		map.drawMap();

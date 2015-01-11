@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   EnnemyShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 21:21:42 by qde-vial         ###   ########.fr       */
+/*   Updated: 2015/01/11 21:42:11 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,5 +112,6 @@ void EnnemyShip::moveShip(Map & map, int const input) {
 	if (map.getContentType(this->getY(), this->getX()) == 1)
 		ft_gameOver();
 	map.setContentType(this->getY(), this->getX(), this->getIndex());
+	map.setContentId(this->getY(), this->getX(), this->getId());
 }
 

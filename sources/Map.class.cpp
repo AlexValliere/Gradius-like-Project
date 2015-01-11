@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 19:43:02 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 22:03:32 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,22 +56,28 @@ void	Map::drawMap(void) {
 
 	for (y = 0; y < maxY; y++)
 	{
-		if (y != 21) /* debug */
+		for (x = 0; x < maxX; x++)
 		{
-			for (x = 0; x < maxX; x++)
+			move(y, x);
+			if (y == 23)
+				printw("=");
+			else if (this->getContentType(y, x) == 1)
 			{
-				move(y, x);
-				if (y == 23)
-					printw("=");
-				else if (this->getContentType(y, x) == 1)
-					printw(">");
-				else if (this->getContentType(y, x) > 5)
-					printw("<");
-				else if (this->getContentType(y, x) == 5)
-					printw("-");
-				else
-					printw(" ");
+				printw(">");
+				mvprintw(y - 1, x - 1, "%d", this->getContentId(y, x));
 			}
+			else if (this->getContentType(y, x) > 5)
+			{
+				printw("<");
+				mvprintw(y - 1, x - 1, "%d", this->getContentId(y, x));
+			}
+			else if (this->getContentType(y, x) == 5)
+			{
+				printw("-");
+				mvprintw(y - 1, x - 1, "%d", this->getContentId(y, x));
+			}
+			else
+				printw(" ");
 		}
 	}
 }

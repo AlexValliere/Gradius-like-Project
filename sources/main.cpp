@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:31:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 21:00:49 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 22:31:52 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ int		main(void)
 	int			index_ennemy = 0;
 	int			index = 999;
 	EnnemyShip	tab[1000];
+
+	for (int i = 0; i < 1000; i++)
+		tab[i].setId(i);
 
 	int			x, y;
 	Map			map;
@@ -58,7 +61,7 @@ int		main(void)
 	{
 		clear();
 		player.actionShip(map, input);
-		player.moveProjectiles(map);
+		player.moveProjectiles(map, tab);
 		while ( index >= 0) {
 			if ( tab[999].getActive() ) {
     			clear();
@@ -83,6 +86,7 @@ int		main(void)
 		ennemyornot--;
 
 		map.drawMap();
+
 		refresh();
 		usleep(50000);
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PlayerShip.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/12 00:05:05 by qde-vial         ###   ########.fr       */
+/*   Updated: 2015/01/12 00:18:53 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class PlayerShip : public AShip {
 		void			moveProjectiles(Map & map);
 
 		int				getProjectilesIndex( void ) const;
+		Projectile		getProjectileAt(int i) const;
 		Projectile		*getProjectiles( void ) const;
 		int				getId( void) const;
 

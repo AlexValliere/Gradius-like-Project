@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PlayerShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/12 00:08:35 by qde-vial         ###   ########.fr       */
+/*   Updated: 2015/01/12 00:20:53 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ PlayerShip::~PlayerShip() {
 PlayerShip &		PlayerShip::operator=( PlayerShip const & model ) {
 	this->_id = model.getId();
 	this->_projectilesIndex = model.getProjectilesIndex();
-	this->_projectiles = model.getProjectiles();
+	for (int i = 0; i < 1000; i++)
+		this->_projectiles[i] = model.getProjectileAt(i);
 	return *this;
 }
 
@@ -67,9 +68,9 @@ int		PlayerShip::getProjectilesIndex( void ) const {
 	return this->_projectilesIndex;
 }	
 
-Projectile		*PlayerShip::getProjectiles( void ) const {
-	return this->_projectiles;
-}	
+Projectile		PlayerShip::getProjectileAt(int i) const {
+	return this->_projectiles[i];
+}
 
 int				PlayerShip::getId( void ) const {
 	return this->_id;

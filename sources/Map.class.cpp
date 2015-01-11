@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:35:37 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 16:43:21 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ Map::Map(void) {
 		for (x = 0; x < maxX; x++)
 		{
 			this->setContentType(y, x, 0);
+			this->setContentId(y, x, -1);
 		}
 	}
 }
@@ -55,16 +56,21 @@ void	Map::drawMap(void) {
 
 	for (y = 0; y < maxY; y++)
 	{
-		for (x = 0; x < maxX; x++)
+		if (y != 21) /* debug */
 		{
-			move(y, x);
-			if (this->getContentType(y, x) == 1)
-				printw(">");
-			else if (this->getContentType(y, x) == 2 || this->getContentType(y, x) == 3 || this->getContentType(y, x) == 4) {
-				printw("<");
+			for (x = 0; x < maxX; x++)
+			{
+				move(y, x);
+				if (this->getContentType(y, x) == 1)
+					printw(">");
+				else if (this->getContentType(y, x) == 2 || this->getContentType(y, x) == 3 || this->getContentType(y, x) == 4) {
+					printw("<");
+				}
+				else if (this->getContentType(y, x) == 5)
+					printw("o");
+				else
+					printw(".");
 			}
-			else
-				printw(".");
 		}
 	}
 }
@@ -119,12 +125,22 @@ int		Map::getPlayerPosY(void) const {
 	return -1; // Player not found
 }
 
+int		Map::getContentId(int y, int x) const {
+	return this->_map[y][x][1];
+}
+
 int		Map::getContentType(int y, int x) const {
-	return this->_map[y][x];
+	return this->_map[y][x][0];
+}
+
+void	Map::setContentId(int y, int x, int value) {
+	this->_map[y][x][1] = value;
+
+	return ;
 }
 
 void	Map::setContentType(int y, int x, int value) {
-	this->_map[y][x] = value;
+	this->_map[y][x][0] = value;
 
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:46:02 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 15:10:44 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 15:24:16 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class AShip : public AMobileEntity {
 		AShip(int type, int x, int y);
 		~AShip();
 
-		virtual void	openFire(void) = 0;
+		// virtual void	openFire(void) = 0;
 };
 
 #endif

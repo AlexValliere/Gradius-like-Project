@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:31:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:49:06 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 16:58:02 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@
 
 int		main(void)
 {
+	// DebugEntity::setDebug(true);
 	int			input = 0;
 	int			x, y;
 	Map			map;
-	PlayerShip	player(2, 11);
-
-	map.setContentType(player.getY(), player.getX(), player.getType());
-	// map.setContentId(player.getY(), player.getX(), player.getId());
+	PlayerShip	player(map, 2, 11);
 
 	initscr();
 	// nodelay(stdscr, true); 			
@@ -50,8 +48,10 @@ int		main(void)
 	while ((input = getch()) != 27)
 	{
 		player.actionShip(map, input);
-
 		clear();
+
+		player.moveProjectiles(map);
+
 		map.drawMap();
 
 		mvprintw(y - 2, 1, "Map: ship player pos %dx/%dy", map.getPlayerPosX(), map.getPlayerPosY());

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PlayerShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 23:33:35 by qde-vial         ###   ########.fr       */
+/*   Updated: 2015/01/11 23:48:58 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "../headers/PlayerShip.class.hpp"
-
-int		PlayerShip::_index = 0;
 
 void	ft_gameOver( void ) {
 	clear();
@@ -27,32 +25,19 @@ void	ft_gameOver( void ) {
 	exit(0);
 }
 
-PlayerShip::PlayerShip(void) : AShip(), _id(PlayerShip::_index), _projectilesIndex(0) {
+PlayerShip::PlayerShip(void) : AShip(), _id(1), _projectilesIndex(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "PlayerShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
-
-	PlayerShip::_index++;
 
 	return ;
 }
 
-PlayerShip::PlayerShip( PlayerShip const & model ) : AShip(), _id(PlayerShip::_index), _projectilesIndex(0) {
-	if (DebugEntity::getDebug() == true)
-		std::cout << "PlayerShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
-	*this = model;
-	PlayerShip::_index++;
-
-	return ;
-}
-
-PlayerShip::PlayerShip(Map & map, int x, int y) : AShip(1, x, y), _id(PlayerShip::_index), _projectilesIndex(0) {
+PlayerShip::PlayerShip(Map & map, int x, int y) : AShip(1, x, y), _id(1), _projectilesIndex(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "PlayerShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
 
 	map.setContentType(this->getY(), this->getX(), this->getType());
-	map.setContentId(this->getY(), this->getX(), this->getId());
-
-	PlayerShip::_index++;
+	map.setContentId(this->getY(), this->getX(), 1);
 
 	return ;
 }
@@ -107,12 +92,15 @@ void	PlayerShip::actionShip(Map & map, int const input) {
 	// }
 	if (input == 115 || input == 258) /* down */
 	{
-		if (this->getY() < 24)
+		if (this->getY() < 22)
 		{
 			if (map.getContentType(this->getY() + 1, this->getX()) != 0)
 				ft_gameOver();
 
+			map.setContentId(this->getY(), this->getX(), -1);
 			map.setContentType(this->getY(), this->getX(), 0);
+
+			map.setContentId(this->getY() + 1, this->getX(), 1);
 			map.setContentType(this->getY() + 1, this->getX(), 1);
 			this->setY(this->getY() + 1);
 		}
@@ -124,7 +112,10 @@ void	PlayerShip::actionShip(Map & map, int const input) {
 			if (map.getContentType(this->getY() - 1, this->getX()) != 0)
 				ft_gameOver();
 
+			map.setContentId(this->getY(), this->getX(), -1);
 			map.setContentType(this->getY(), this->getX(), 0);
+
+			map.setContentId(this->getY() - 1, this->getX(), 1);
 			map.setContentType(this->getY() - 1, this->getX(), 1);
 			this->setY(this->getY() - 1);
 		}
@@ -156,11 +147,12 @@ void	PlayerShip::openFire(Map & map) {
 		else
 		{
 			this->_projectiles[this->_projectilesIndex].setActive(1);
+			this->_projectiles[this->_projectilesIndex].setId(this->_projectilesIndex);
 			this->_projectiles[this->_projectilesIndex].setDirection(1);
 			this->_projectiles[this->_projectilesIndex].setX(this->getX() + 1);
 			this->_projectiles[this->_projectilesIndex].setY(this->getY());
 			map.setContentType(this->getY(), this->getX() + 1, 5);
-			map.setContentId(this->getY(), this->getX() + 1, -1);
+			map.setContentId(this->getY(), this->getX() + 1, this->_projectilesIndex);
 			this->_projectilesIndex++;
 		}
 
@@ -179,7 +171,7 @@ void	PlayerShip::openFire(Map & map) {
 	return ;
 }
 
-void	PlayerShip::moveProjectiles(Map & map) {
+void	PlayerShip::moveProjectiles(Map & map, int * destroyEnnemyId) {
 	int	i;
 
 	if (this->_projectilesIndex >= 0)
@@ -197,10 +189,31 @@ void	PlayerShip::moveProjectiles(Map & map) {
 				}
 				else
 				{
-					this->_projectiles[i].moveOnX(3);
+					if (map.getContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX() + 1) > 5
+						|| map.getContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX() + 2) > 5
+						|| map.getContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX() + 3) > 5
+						)
+					{
+						this->_projectiles[i].setActive(0);
 
-					map.setContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX(), 5);
-					map.setContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX(), this->_projectiles[i].getId());
+						for (int j = 1; j <= 3; j++)
+						{
+							if (this->_projectiles[i].getX() + j <= 80)
+							{
+								if (map.getContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX() + j) > 5)
+									*destroyEnnemyId = map.getContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX() + j);
+								map.setContentType((this->_projectiles[i]).getY(), (this->_projectiles[i]).getX() + j, 0);
+								map.setContentId((this->_projectiles[i]).getY(), (this->_projectiles[i]).getX() + j, -1);
+							}
+						}
+					}
+					else
+					{
+						this->_projectiles[i].moveOnX(3);
+
+						map.setContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX(), 5);
+						map.setContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX(), this->_projectiles[i].getId());
+					}
 				}
 			}
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 23:14:24 by qde-vial         ###   ########.fr       */
+/*   Updated: 2015/01/11 23:45:35 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,6 @@ Map::Map(Map const & object) : DebugEntity() {
 	return ;
 }
 
-// Map::Map(int height, int width) {
-// 	if (DebugEntity::getDebug() == true)
-// 		std::cout << "Map(" << height << ", " << width << ")." << std::endl;
-// }
-
 Map::~Map() {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "~Map()." << std::endl;
@@ -54,22 +49,28 @@ void	Map::drawMap(void) {
 
 	for (y = 0; y < maxY; y++)
 	{
-		if (y != 21) /* debug */
+		for (x = 0; x < maxX; x++)
 		{
-			for (x = 0; x < maxX; x++)
+			move(y, x);
+			if (y == 23)
+				printw("=");
+			else if (this->getContentType(y, x) == 1)
 			{
-				move(y, x);
-				if (y == 23)
-					printw("=");
-				else if (this->getContentType(y, x) == 1)
-					printw(">");
-				else if (this->getContentType(y, x) > 5)
-					printw("<");
-				else if (this->getContentType(y, x) == 5)
-					printw("-");
-				else
-					printw(" ");
+				printw(">");
+				mvprintw(y - 1, x - 1, "%d", this->getContentId(y, x));
 			}
+			else if (this->getContentType(y, x) > 5)
+			{
+				printw("<");
+				mvprintw(y - 1, x - 1, "%d", this->getContentId(y, x));
+			}
+			else if (this->getContentType(y, x) == 5)
+			{
+				printw("-");
+				mvprintw(y - 1, x - 1, "%d", this->getContentId(y, x));
+			}
+			else
+				printw(" ");
 		}
 	}
 }

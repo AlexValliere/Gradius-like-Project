@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:21:18 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 14:36:17 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,11 +85,11 @@ void	PlayerShip::moveShip(Map & map, int const input) {
 	return ;
 }
 
-Projectile*	PlayerShip::openFire(void) {
+void	PlayerShip::openFire(void) {
 	Projectile	*projectile = new Projectile(this->_x + 1, this->_y);
 
 	if (DebugEntity::getDebug() == true)
 		std::cout << "PlayerShip #" << this->_id << " opened fire from x=" << this->_x << "; y=" << this->_y << " creating a projectile at x=" << projectile->getX() << "; y=" << projectile->getY() << "." << std::endl;
 
-	return projectile;
+	return ;
 }

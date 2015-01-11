@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:31:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:22:11 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 14:40:29 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		main(void)
 	PlayerShip	player(2, 11);
 
 	map.setContentType(player.getY(), player.getX(), player.getType());
-	map.setContentId(player.getY(), player.getX(), player.getId());
+	// map.setContentId(player.getY(), player.getX(), player.getId());
 
 	initscr();
 	// nodelay(stdscr, true); 			

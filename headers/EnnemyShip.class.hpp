@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 17:09:55 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 14:39:24 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class EnnemyShip : public AShip {
 		EnnemyShip(int x, int y);
 		~EnnemyShip();
 
-		Projectile*	openFire(void);
+		void	openFire(void);
 
 	protected:
 		static int	_index;

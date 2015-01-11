@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 13:54:56 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 14:35:37 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ Map::Map(void) {
 		for (x = 0; x < maxX; x++)
 		{
 			this->setContentType(y, x, 0);
-			this->setContentId(y, x, -1);
 		}
 	}
 }
@@ -61,6 +60,9 @@ void	Map::drawMap(void) {
 			move(y, x);
 			if (this->getContentType(y, x) == 1)
 				printw(">");
+			else if (this->getContentType(y, x) == 2 || this->getContentType(y, x) == 3 || this->getContentType(y, x) == 4) {
+				printw("<");
+			}
 			else
 				printw(".");
 		}
@@ -79,7 +81,6 @@ Map & Map::operator=(Map const & rhs) {
 		for (x = 0; x < maxX; x++)
 		{
 			this->setContentType(y, x, rhs.getContentType(y, x));
-			this->setContentId(y, x, rhs.getContentId(y, x));
 		}
 	}
 
@@ -118,23 +119,13 @@ int		Map::getPlayerPosY(void) const {
 	return -1; // Player not found
 }
 
-
 int		Map::getContentType(int y, int x) const {
-	return this->_map[y][x][0];
-}
-
-int		Map::getContentId(int y, int x) const {
-	return this->_map[y][x][1];
+	return this->_map[y][x];
 }
 
 void	Map::setContentType(int y, int x, int value) {
-	this->_map[y][x][0] = value;
+	this->_map[y][x] = value;
 
 	return ;
 }
 
-void	Map::setContentId(int y, int x, int value) {
-	this->_map[y][x][1] = value;
-
-	return ;
-}

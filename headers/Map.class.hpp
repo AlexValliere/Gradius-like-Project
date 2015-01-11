@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:40 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 13:57:53 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 14:31:48 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,15 @@ class Map : public DebugEntity {
 		int		getPlayerPosY(void) const;	// Return -1 if not found
 
 		int		getContentType(int y, int x) const;
-		int		getContentId(int y, int x) const;
 		void	setContentType(int y, int x, int value);
-		void	setContentId(int y, int x, int value);
 
 	private:
-		int		_map[25][81][2];	// _map[42][42][0] = 0 - Empty
+		int		_map[25][81];		// _map[42][42][0] = 0 - Empty
 									//					1 - PlayerShip
-									//					2 - EnnemyShip
-									//					3 - Projectile
-									//					4 - Unknown
-									// _map[42][42][1] = Object's ID
+									//					2 - EnnemyShip1
+									//					3 - EnnemyShip2
+									//					4 - EnnemyShip3
+									//					
 };
 
 #endif

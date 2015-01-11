@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 15:06:42 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 15:08:52 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class PlayerShip : public AShip {
 
 		void		actionShip(Map & map, int const input);
 
-		void			openFire(void);
+		void		openFire(void);
 
 	protected:
 		int			_id;

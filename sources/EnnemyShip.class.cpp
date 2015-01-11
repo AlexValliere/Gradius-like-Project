@@ -6,7 +6,7 @@
 /*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 21:55:53 by qde-vial         ###   ########.fr       */
+/*   Updated: 2015/01/11 23:12:43 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int			randY( void ) {
 	}
 }
 
-EnnemyShip::EnnemyShip(void) : AShip(), _projectilesIndex(0) {
+EnnemyShip::EnnemyShip(void) : AShip() {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
 	
@@ -48,19 +48,26 @@ EnnemyShip::EnnemyShip(void) : AShip(), _projectilesIndex(0) {
 	return ;
 }
 
-EnnemyShip::EnnemyShip( EnnemyShip const & model ) : AShip(), _projectilesIndex(0) {
+// EnnemyShip::EnnemyShip( EnnemyShip const & model ) : AShip() {
+// 	if (DebugEntity::getDebug() == true)
+// 		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
+// 	*this = model;
+// 	return ;
+// }
+
+EnnemyShip::EnnemyShip(int x, int y) : AShip(2, x, y)  {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
-	this->_x = model.getX();
+
 	return ;
 }
 
-EnnemyShip::EnnemyShip(int x, int y) : AShip(2, x, y), _projectilesIndex(0) {
-	if (DebugEntity::getDebug() == true)
-		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
-
-	return ;
-}
+// EnnemyShip &		EnnemyShip::operator=( EnnemyShip const & model ) {
+// 	this->_x = model.getX();
+// 	this->_y = model.getY();
+// 	this->_active = model.getActive();
+// 	return *this;
+// }
 
 EnnemyShip::~EnnemyShip() {
 	if (DebugEntity::getDebug() == true)

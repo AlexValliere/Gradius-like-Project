@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PlayerShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 21:21:47 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 23:33:35 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,15 @@ PlayerShip::PlayerShip(void) : AShip(), _id(PlayerShip::_index), _projectilesInd
 	return ;
 }
 
+PlayerShip::PlayerShip( PlayerShip const & model ) : AShip(), _id(PlayerShip::_index), _projectilesIndex(0) {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "PlayerShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
+	*this = model;
+	PlayerShip::_index++;
+
+	return ;
+}
+
 PlayerShip::PlayerShip(Map & map, int x, int y) : AShip(1, x, y), _id(PlayerShip::_index), _projectilesIndex(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "PlayerShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
@@ -53,6 +62,25 @@ PlayerShip::~PlayerShip() {
 		std::cout << "PlayerShip #" << this->_id << " destroyed." << std::endl;
 
 	return ;
+}
+
+// PlayerShip &		PlayerShip::operator=( PlayerShip const & model ) {
+// 	this->_id = model.getId();
+// 	this->_projectilesIndex = model.getProjectilesIndex();
+// 	this->_projectiles = model.getProjectiles();
+// 	return *this;
+// }
+
+int		PlayerShip::getProjectilesIndex( void ) {
+	return this->_projectilesIndex;
+}	
+
+Projectile		*PlayerShip::getProjectiles( void ) {
+	return this->_projectiles;
+}	
+
+int				PlayerShip::getId( void ) {
+	return this->_id;
 }
 
 void	PlayerShip::actionShip(Map & map, int const input) {

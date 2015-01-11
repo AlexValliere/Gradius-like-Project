@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 19:43:02 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 23:14:24 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <ncurses.h>
 #include "../headers/Map.class.hpp"
 
-Map::Map(void) {
+Map::Map(void) : DebugEntity() {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "Map()." << std::endl;
 
@@ -31,12 +31,10 @@ Map::Map(void) {
 	}
 }
 
-Map::Map(Map const & object) {
+Map::Map(Map const & object) : DebugEntity() {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "Map(Map const & object)." << std::endl;
-
 	*this = object;
-
 	return ;
 }
 

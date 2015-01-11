@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Projectile.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:54:32 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 19:08:08 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 23:34:19 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class Projectile : public AMobileEntity {
 	public:
 		Projectile();
+		Projectile( Projectile const & model );
 		Projectile(int active, int direction, int x, int y);
 		~Projectile();
 

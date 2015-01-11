@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Projectile.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:30:45 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 19:08:20 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 23:35:14 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,14 @@ Projectile::Projectile(void) : AMobileEntity(), _id(Projectile::_index), _direct
 
 	Projectile::_index++;
 
+	return ;
+}
+
+Projectile::Projectile( Projectile const & model ) : AMobileEntity(), _id(Projectile::_index), _direction(0), _active(0) {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "Projectile #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
+	*this = model;
+	Projectile::_index++;
 	return ;
 }
 

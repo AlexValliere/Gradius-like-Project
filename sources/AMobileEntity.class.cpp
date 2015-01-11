@@ -6,7 +6,7 @@
 /*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:12:13 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 21:41:15 by qde-vial         ###   ########.fr       */
+/*   Updated: 2015/01/11 23:06:55 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 int		AMobileEntity::_index = 0;
 
-AMobileEntity::AMobileEntity(void) : _id(AMobileEntity::_index++), _type(4), _x(0), _y(0) {
+AMobileEntity::AMobileEntity(void) : DebugEntity(), _id(AMobileEntity::_index++), _type(4), _x(0), _y(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "#" << this->_id << " - AMobileEntity()." << std::endl;
 
 	return ;
 }
 
-AMobileEntity::AMobileEntity( AMobileEntity const & model) : _id(AMobileEntity::_index++), _type(4), _x(0), _y(0) {
+AMobileEntity::AMobileEntity( AMobileEntity const & model) : DebugEntity(), _id(AMobileEntity::_index++), _type(4), _x(0), _y(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "#" << this->_id << " - AMobileEntity()." << std::endl;
 	*this = model;

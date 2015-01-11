@@ -6,7 +6,7 @@
 /*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 21:21:31 by qde-vial         ###   ########.fr       */
+/*   Updated: 2015/01/11 23:33:05 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,19 @@
 class PlayerShip : public AShip {
 	public:
 		PlayerShip();
+		PlayerShip( PlayerShip const & model );
 		PlayerShip(Map & map, int x, int y);
 		~PlayerShip();
 
-		void		actionShip(Map & map, int const input);
-		void		openFire(Map & map);
+		// PlayerShip &	operator=( PlayerShip const & model );
+		void			actionShip(Map & map, int const input);
+		void			openFire(Map & map);
+		void			moveProjectiles(Map & map);
 
-		void		moveProjectiles(Map & map);
+		int				getProjectilesIndex( void );
+		Projectile		*getProjectiles( void );
+		int				getId( void);
+
 
 	protected:
 		int			_id;

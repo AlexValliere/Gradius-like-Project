@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 17:52:45 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 18:41:27 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,50 @@ void	PlayerShip::openFire(Map & map) {
 
 	if (canOpenFire)
 	{
-		this->_projectiles[this->_projectilesIndex].setDirection(1);
-		this->_projectiles[this->_projectilesIndex].setX(this->getX() + 1);
-		this->_projectiles[this->_projectilesIndex].setY(this->getY());
-		map.setContentType(this->getY(), this->getX() + 1, 5);
-		map.setContentId(this->getY(), this->getX() + 1, -1);
+		if (this->_projectilesIndex == 26)
+		{
+			// Clean map from projectiles
+			for (int i = 0; i < 27; i++)
+			{
+				map.setContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX(), 0);
+				map.setContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX(), -1);
+			}
+
+			// Destroy last projectile
+			this->_projectiles[this->_projectilesIndex].setDirection(0);
+			this->_projectiles[this->_projectilesIndex].setX(-1);
+			this->_projectiles[this->_projectilesIndex].setY(-1);
+
+			// Move array projectiles data
+			for (int i = 25; i >= 0; i--)
+			{
+				// this->_projectiles[i + 1] = this->_projectiles[i];
+				this->_projectiles[i + 1].setDirection(this->_projectiles[i].getDirection());
+				this->_projectiles[i + 1].setX(this->_projectiles[i].getX());
+				this->_projectiles[i + 1].setY(this->_projectiles[i].getY());
+			}
+
+			// Set projectiles on map
+			for (int i = 0; i < 27; i++)
+			{
+				map.setContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX(), 5);
+				map.setContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX(), -1);
+			}
+
+			this->_projectiles[0].setDirection(1);
+			this->_projectiles[0].setX(this->getX() + 1);
+			this->_projectiles[0].setY(this->getY());
+			map.setContentType(this->_projectiles[0].getY(), this->_projectiles[0].getX() + 1, 5);
+			map.setContentId(this->_projectiles[0].getY(), this->_projectiles[0].getX() + 1, -1);
+		}
+		else
+		{
+			this->_projectiles[this->_projectilesIndex].setDirection(1);
+			this->_projectiles[this->_projectilesIndex].setX(this->getX() + 1);
+			this->_projectiles[this->_projectilesIndex].setY(this->getY());
+			map.setContentType(this->getY(), this->getX() + 1, 5);
+			map.setContentId(this->getY(), this->getX() + 1, -1);
+		}
 
 		// if (DebugEntity::getDebug() == true)
 		// {
@@ -109,7 +148,8 @@ void	PlayerShip::openFire(Map & map) {
 		// }
 		// mvprintw(21, 1, "PlayerShip #%d opened fire from x=%d;y=%d creating a proojectile at x=%d;y=%d.", this->_id, this->_x, this->_y, this->_projectiles[this->_projectilesIndex].getX(), this->_projectiles[this->_projectilesIndex].getY());
 
-		this->_projectilesIndex++;
+		if (this->_projectilesIndex < 26)
+			this->_projectilesIndex++;
 	}
 	// else
 	// {

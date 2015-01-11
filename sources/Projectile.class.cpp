@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:30:45 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 16:21:29 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 18:08:44 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ Projectile & Projectile::operator=(Projectile const & rhs) {
 
 	this->setDirection(rhs.getDirection());
 	this->setId(rhs.getId());
+	this->setX(rhs.getX());
+	this->setY(rhs.getY());
 
 	return *this;	
 }

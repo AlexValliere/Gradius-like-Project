@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AShip.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:46:02 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:37:42 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 14:57:26 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class AShip : public AMobileEntity {
 		~AShip();
 
 		virtual void	openFire(void) = 0;
+		virtual void	moveShip(void) = 0;
 };
 
 #endif

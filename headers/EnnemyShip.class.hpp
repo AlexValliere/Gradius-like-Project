@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 15:04:05 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 15:07:10 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class EnnemyShip : public AShip {
 	public:
-		EnnemyShip();
+		EnnemyShip( void );
 		EnnemyShip(int x, int y);
 		~EnnemyShip();
 

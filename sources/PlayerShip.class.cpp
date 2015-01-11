@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PlayerShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 20:05:45 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 21:10:55 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int		PlayerShip::_index = 0;
 
 void	ft_gameOver( void ) {
 	clear();
-	mvprintw(12, 40, "Game Over");
+	mvprintw(12, 35, "Game Over");
+	refresh();
 	sleep(2);
 	endwin();
 	exit(0);

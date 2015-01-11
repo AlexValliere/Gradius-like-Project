@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 23:45:39 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 23:50:49 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ EnnemyShip::EnnemyShip(int x, int y) : AShip(2, x, y)  {
 }
 
 // EnnemyShip &		EnnemyShip::operator=( EnnemyShip const & model ) {
+//	this->_index = model.getIndex();
 // 	this->_x = model.getX();
 // 	this->_y = model.getY();
 // 	this->_active = model.getActive();

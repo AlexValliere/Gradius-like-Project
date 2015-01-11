@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AShip.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:46:02 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 17:40:27 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 21:45:40 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@
 class AShip : public AMobileEntity {
 	public:
 		AShip();
+		AShip( AShip const & AShip );
 		AShip(int type, int x, int y);
 		~AShip();
+
+AShip & operator=( AShip const & model );
 
 };
 

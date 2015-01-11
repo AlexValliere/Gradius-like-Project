@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMobileEntity.class.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:12:24 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 20:36:16 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 21:41:56 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@
 class AMobileEntity : public DebugEntity {
 	public:
 		AMobileEntity();
+		AMobileEntity( AMobileEntity const & model );
 		AMobileEntity(int type, int x, int y);
 		~AMobileEntity();
 
+		AMobileEntity &		operator=( AMobileEntity const & model );
 		virtual void		moveOnX(int i);
 		virtual void		moveOnY(int i);
 

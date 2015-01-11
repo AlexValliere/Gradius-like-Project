@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AShip.class.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:55:45 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 20:37:14 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 21:50:02 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,13 @@ AShip::AShip(void) : AMobileEntity() {
 	return ;
 }
 
+AShip::AShip( AShip const & model ) : AMobileEntity() {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "AShip::AMobileEntity()." << std::endl;
+	*this = model;
+	return ;
+}
+
 AShip::AShip(int type, int x, int y) : AMobileEntity(type, x,y) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "AShip::AMobileEntity(" << x << ", " << y << ")." << std::endl;
@@ -27,6 +34,10 @@ AShip::AShip(int type, int x, int y) : AMobileEntity(type, x,y) {
 	return ;
 }
 
+AShip &			AShip::operator=( AShip const & model ) {
+	(void)model;
+	return *this;
+}
 
 AShip::~AShip(void) {
 	if (DebugEntity::getDebug() == true)

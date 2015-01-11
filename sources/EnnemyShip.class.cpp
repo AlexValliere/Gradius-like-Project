@@ -6,7 +6,7 @@
 /*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 21:21:42 by qde-vial         ###   ########.fr       */
+/*   Updated: 2015/01/11 21:55:53 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,13 @@ EnnemyShip::EnnemyShip(void) : AShip(), _projectilesIndex(0) {
 	this->_index = _nbr + 6;
 	_nbr++;
 
+	return ;
+}
+
+EnnemyShip::EnnemyShip( EnnemyShip const & model ) : AShip(), _projectilesIndex(0) {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
+	this->_x = model.getX();
 	return ;
 }
 

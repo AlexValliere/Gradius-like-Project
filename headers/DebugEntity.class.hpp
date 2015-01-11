@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DebugEntity.class.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:35:16 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 16:17:39 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 21:50:51 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@
 class DebugEntity {
 	public:
 		DebugEntity(void);
+		DebugEntity( DebugEntity const & model );
 		~DebugEntity();
 
+		DebugEntity &	operator=( DebugEntity const & model );
 		static bool	getDebug(void);
 		static void	setDebug(bool value);
 

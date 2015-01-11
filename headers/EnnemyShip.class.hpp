@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   EnnemyShip.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 17:04:47 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 21:53:23 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@
 class EnnemyShip : public AShip {
 	public:
 		EnnemyShip( void );
+		EnnemyShip( EnnemyShip const & model );
 		EnnemyShip(int x, int y);
 		~EnnemyShip();
 
+		EnnemyShip &	operator=( EnnemyShip const & model );
 		void			moveShip(Map & map, int const input);
 		void			activeEnnemyShip( void );
 

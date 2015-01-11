@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMobileEntity.class.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:12:13 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 20:36:43 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 21:41:15 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,13 @@ AMobileEntity::AMobileEntity(void) : _id(AMobileEntity::_index++), _type(4), _x(
 	return ;
 }
 
+AMobileEntity::AMobileEntity( AMobileEntity const & model) : _id(AMobileEntity::_index++), _type(4), _x(0), _y(0) {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "#" << this->_id << " - AMobileEntity()." << std::endl;
+	*this = model;
+	return ;
+}
+
 AMobileEntity::AMobileEntity(int type, int x, int y) : _id(AMobileEntity::_index), _type(type), _x(x), _y(y) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "#" << this->_id << " - AMobileEntity(" << x << ", " << y << ")." << std::endl;
@@ -29,12 +36,19 @@ AMobileEntity::AMobileEntity(int type, int x, int y) : _id(AMobileEntity::_index
 	return ;
 }
 
-
 AMobileEntity::~AMobileEntity(void) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "#" << this->_id << " - ~AMobileEntity()." << std::endl;
 
 	return;
+}
+
+AMobileEntity &				AMobileEntity::operator=( AMobileEntity const & model ) {
+	this->_id = model.getId();
+	this->_type = model.getType();
+	this->_x = model.getX();
+	this->_y = model.getY();
+	return *this;
 }
 
 void		AMobileEntity::moveOnX(int i) {

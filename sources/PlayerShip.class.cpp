@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 22:49:30 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 23:08:36 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,7 +179,7 @@ void	PlayerShip::moveProjectiles(Map & map, int * destroyEnnemyId) {
 
 						for (int j = 1; j <= 3; j++)
 						{
-							if (i + j <= 80)
+							if (this->_projectiles[i].getX() + j <= 80)
 							{
 								if (map.getContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX() + j) > 5)
 									*destroyEnnemyId = map.getContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX() + j);

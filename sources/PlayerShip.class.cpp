@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 21:10:55 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 21:21:47 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,11 +79,11 @@ void	PlayerShip::actionShip(Map & map, int const input) {
 	// }
 	if (input == 115 || input == 258) /* down */
 	{
-		if (map.getContentType(this->getY() + 1, this->getX()) != 0) {
-			ft_gameOver();
-		}
-		if (this->getY() < 79)
+		if (this->getY() < 24)
 		{
+			if (map.getContentType(this->getY() + 1, this->getX()) != 0)
+				ft_gameOver();
+
 			map.setContentType(this->getY(), this->getX(), 0);
 			map.setContentType(this->getY() + 1, this->getX(), 1);
 			this->setY(this->getY() + 1);
@@ -91,11 +91,11 @@ void	PlayerShip::actionShip(Map & map, int const input) {
 	}
 	else if (input == 122 || input == 259) /* up */
 	{
-		if (map.getContentType(this->getY() - 1, this->getX()) != 0) {
-			ft_gameOver();
-		}
 		if (this->getY() > 0) 
 		{
+			if (map.getContentType(this->getY() - 1, this->getX()) != 0)
+				ft_gameOver();
+
 			map.setContentType(this->getY(), this->getX(), 0);
 			map.setContentType(this->getY() - 1, this->getX(), 1);
 			this->setY(this->getY() - 1);

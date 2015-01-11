@@ -3,18 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   PlayerShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 19:11:10 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 20:05:45 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <ncurses.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "../headers/PlayerShip.class.hpp"
 
 int		PlayerShip::_index = 0;
+
+void	ft_gameOver( void ) {
+	clear();
+	mvprintw(12, 40, "Game Over");
+	sleep(2);
+	endwin();
+	exit(0);
+}
 
 PlayerShip::PlayerShip(void) : AShip(), _id(PlayerShip::_index), _projectilesIndex(0) {
 	if (DebugEntity::getDebug() == true)
@@ -68,7 +78,10 @@ void	PlayerShip::actionShip(Map & map, int const input) {
 	// }
 	if (input == 115 || input == 258) /* down */
 	{
-		if (this->getY() < 79 && map.getContentType(this->getY() + 1, this->getX()) == 0)
+		if (map.getContentType(this->getY() + 1, this->getX()) != 0) {
+			ft_gameOver();
+		}
+		if (this->getY() < 79)
 		{
 			map.setContentType(this->getY(), this->getX(), 0);
 			map.setContentType(this->getY() + 1, this->getX(), 1);
@@ -77,7 +90,10 @@ void	PlayerShip::actionShip(Map & map, int const input) {
 	}
 	else if (input == 122 || input == 259) /* up */
 	{
-		if (this->getY() > 0 && map.getContentType(this->getY() - 1, this->getX()) == 0)
+		if (map.getContentType(this->getY() - 1, this->getX()) != 0) {
+			ft_gameOver();
+		}
+		if (this->getY() > 0) 
 		{
 			map.setContentType(this->getY(), this->getX(), 0);
 			map.setContentType(this->getY() - 1, this->getX(), 1);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main2.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 14:06:58 by hades             #+#    #+#             */
-/*   Updated: 2015/01/11 19:26:09 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 19:32:13 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		main(void)
 
 	int			x, y;
 	Map			map;
-	PlayerShip	player(2, 11);
+	PlayerShip	player(map, 2, 11);
 
 	map.setContentType(player.getY(), player.getX(), player.getType());
 
@@ -58,6 +58,7 @@ int		main(void)
 	{
 		clear();
 		player.actionShip(map, input);
+		player.moveProjectiles(map);
 		while ( index >= 0) {
 			if ( tab[1000].getActive() ) {
     			clear();

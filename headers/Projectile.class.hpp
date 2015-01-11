@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:54:32 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 19:08:08 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 23:27:53 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 class Projectile : public AMobileEntity {
 	public:
 		Projectile();
+		Projectile(Projectile const & object);
 		Projectile(int active, int direction, int x, int y);
 		~Projectile();
 

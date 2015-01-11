@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:30:45 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 19:08:20 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 23:32:08 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ Projectile::Projectile(int active, int direction, int x, int y) : AMobileEntity(
 
 	return ;
 }
+
+Projectile::Projectile(Projectile const & object) : AMobileEntity(object) {
+	*this = object;
+
+	return ;
+}
+
 
 Projectile::~Projectile() {
 	if (DebugEntity::getDebug() == true)

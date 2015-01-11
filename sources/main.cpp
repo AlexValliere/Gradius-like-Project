@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:31:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 19:36:44 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 21:00:49 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(void)
 
 	int			ennemyornot = 6;
 	int			index_ennemy = 0;
-	int			index = 1000;
+	int			index = 999;
 	EnnemyShip	tab[1000];
 
 	int			x, y;
@@ -60,7 +60,7 @@ int		main(void)
 		player.actionShip(map, input);
 		player.moveProjectiles(map);
 		while ( index >= 0) {
-			if ( tab[1000].getActive() ) {
+			if ( tab[999].getActive() ) {
     			clear();
     			mvprintw(12, 40, "YOU WIN !");
     			sleep(3);
@@ -72,7 +72,7 @@ int		main(void)
 			}
 			index--;
 		}
-		index = 1000;
+		index = 999;
 		if ( ennemyornot == 0 ) {
 			if (index_ennemy < 1000) {
 				tab[index_ennemy].setActive(true);

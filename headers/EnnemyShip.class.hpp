@@ -6,7 +6,7 @@
 /*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 15:18:01 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 17:04:47 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,28 @@ class EnnemyShip : public AShip {
 		EnnemyShip(int x, int y);
 		~EnnemyShip();
 
-		virtual void	openFire(void);
-		virtual void	moveShip(Map & map, int const input);
+		void			moveShip(Map & map, int const input);
+		void			activeEnnemyShip( void );
+
+		bool			getActive( void );
+		int				getX( void );
+		int				getY( void );
+		int				getIndex( void );
+		void			setActive( bool active );
+		void			setX( int x );
+		void			setY( int y );
+		void			setIndex( int index );
+
+
 
 	protected:
-		int			_id;
-		static int	_index;
+		static int	_nbr;
+		int			_index;
+		int			_x;
+		int			_y;
 		int			_projectilesIndex;
 		Projectile	_projectiles[27];
+		bool		_active;
 };
 
 #endif

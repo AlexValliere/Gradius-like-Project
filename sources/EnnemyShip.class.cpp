@@ -6,7 +6,7 @@
 /*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 17:31:04 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 18:38:50 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ EnnemyShip::EnnemyShip(void) : AShip(), _projectilesIndex(0) {
 
 	this->_index = _nbr + 2;
 	_nbr++;
-
-	mvprintw(2, 1, "Constructor EnnemyShip x : %d || EnnemyShip y : %d", this->getX(), this->getY());
 
 	return ;
 }
@@ -101,14 +99,10 @@ void			EnnemyShip::setIndex( int index ) {
 void EnnemyShip::moveShip(Map & map, int const input) {
 	int i = input;
 	i = i;
-	map = map;
-	mvprintw(1, 1, "Ship index : %d, Ship active : %d, Ship x : %d || Ship y : %d", this->getIndex(), this->getActive(), this->getX(), this->getY());
-	map.setContentType(this->getY(), this->getX(), 0);
-	if (this->getX() == 0)
-	{
-		this->setX(80);
-		this->setY(randY());
+	if (this->_x == 0){
+		this->_active = false;
 	}
+	map.setContentType(this->getY(), this->getX(), 0);
 	this->setX(this->getX() - 1);
 	map.setContentType(this->getY(), this->getX(), this->getIndex());
 }

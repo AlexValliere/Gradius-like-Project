@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hades <hades@student.42.fr>                +#+  +:+       +#+         #
+#    By: alex <alex@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/07 11:47:18 by alex              #+#    #+#              #
-#    Updated: 2015/01/11 14:09:21 by hades            ###   ########.fr        #
+#    Updated: 2015/01/11 15:11:19 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC			=	sources/AMobileEntity.class.cpp \
 				sources/Map.class.cpp \
 				sources/PlayerShip.class.cpp \
 				sources/Projectile.class.cpp \
-				sources/main2.cpp
+				sources/main.cpp
 
 OBJ			= $(SRC:.cpp=.o)
 

@@ -6,7 +6,7 @@
 /*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 15:10:15 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 15:17:25 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 int		EnnemyShip::_index = 0;
 
-EnnemyShip::EnnemyShip(void) : AShip(), _id(EnnemyShip::_index) {
+EnnemyShip::EnnemyShip(void) : AShip(), _id(EnnemyShip::_index), _projectilesIndex(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
 
@@ -24,7 +24,7 @@ EnnemyShip::EnnemyShip(void) : AShip(), _id(EnnemyShip::_index) {
 	return ;
 }
 
-EnnemyShip::EnnemyShip(int x, int y) : AShip(2, x, y), _id(EnnemyShip::_index) {
+EnnemyShip::EnnemyShip(int x, int y) : AShip(2, x, y), _id(EnnemyShip::_index), _projectilesIndex(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
 

@@ -6,7 +6,7 @@
 /*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 15:10:37 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 15:16:38 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int		PlayerShip::_index = 0;
 
-PlayerShip::PlayerShip(void) : AShip(), _id(PlayerShip::_index) {
+PlayerShip::PlayerShip(void) : AShip(), _id(PlayerShip::_index), _projectilesIndex(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "PlayerShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
 
@@ -25,7 +25,7 @@ PlayerShip::PlayerShip(void) : AShip(), _id(PlayerShip::_index) {
 	return ;
 }
 
-PlayerShip::PlayerShip(int x, int y) : AShip(1, x, y), _id(PlayerShip::_index) {
+PlayerShip::PlayerShip(int x, int y) : AShip(1, x, y), _id(PlayerShip::_index), _projectilesIndex(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "PlayerShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
 
@@ -41,7 +41,7 @@ PlayerShip::~PlayerShip() {
 	return ;
 }
 
-void	PlayerShip::moveShip(Map & map, int const input) {
+void	PlayerShip::actionShip(Map & map, int const input) {
 
 	// if (*input == 100 || *input == 261) /* right*/
 	// {
@@ -86,10 +86,10 @@ void	PlayerShip::moveShip(Map & map, int const input) {
 }
 
 void	PlayerShip::openFire(void) {
-	Projectile	*projectile = new Projectile(this->_x + 1, this->_y);
+	this->_projectiles[this->_projectilesIndex] = Projectile(this->_x + 1, this->_y);
 
 	if (DebugEntity::getDebug() == true)
-		std::cout << "PlayerShip #" << this->_id << " opened fire from x=" << this->_x << "; y=" << this->_y << " creating a projectile at x=" << projectile->getX() << "; y=" << projectile->getY() << "." << std::endl;
+		std::cout << "PlayerShip #" << this->_id << " opened fire from x=" << this->_x << "; y=" << this->_y << " creating a projectile at x=" << this->_projectiles[this->_projectilesIndex].getX() << "; y=" << this->_projectiles[this->_projectilesIndex].getY() << "." << std::endl;
 
 	return ;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PlayerShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 23:48:58 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/12 00:08:35 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ PlayerShip::PlayerShip(void) : AShip(), _id(1), _projectilesIndex(0) {
 	return ;
 }
 
+PlayerShip::PlayerShip( PlayerShip const & model) : AShip(), _id(1), _projectilesIndex(0) {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "PlayerShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
+	*this = model;
+	return ;
+}
+
 PlayerShip::PlayerShip(Map & map, int x, int y) : AShip(1, x, y), _id(1), _projectilesIndex(0) {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "PlayerShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
@@ -49,22 +56,22 @@ PlayerShip::~PlayerShip() {
 	return ;
 }
 
-// PlayerShip &		PlayerShip::operator=( PlayerShip const & model ) {
-// 	this->_id = model.getId();
-// 	this->_projectilesIndex = model.getProjectilesIndex();
-// 	this->_projectiles = model.getProjectiles();
-// 	return *this;
-// }
+PlayerShip &		PlayerShip::operator=( PlayerShip const & model ) {
+	this->_id = model.getId();
+	this->_projectilesIndex = model.getProjectilesIndex();
+	this->_projectiles = model.getProjectiles();
+	return *this;
+}
 
-int		PlayerShip::getProjectilesIndex( void ) {
+int		PlayerShip::getProjectilesIndex( void ) const {
 	return this->_projectilesIndex;
 }	
 
-Projectile		*PlayerShip::getProjectiles( void ) {
+Projectile		*PlayerShip::getProjectiles( void ) const {
 	return this->_projectiles;
 }	
 
-int				PlayerShip::getId( void ) {
+int				PlayerShip::getId( void ) const {
 	return this->_id;
 }
 

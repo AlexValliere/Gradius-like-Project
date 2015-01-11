@@ -6,7 +6,7 @@
 /*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 23:12:28 by qde-vial         ###   ########.fr       */
+/*   Updated: 2015/01/12 00:01:03 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,19 @@
 class EnnemyShip : public AShip {
 	public:
 		EnnemyShip( void );
-		// EnnemyShip( EnnemyShip const & model );
+		EnnemyShip( EnnemyShip const & model );
 		EnnemyShip(int x, int y);
 		~EnnemyShip();
 
-		// EnnemyShip &	operator=( EnnemyShip const & model );
+		EnnemyShip &	operator=( EnnemyShip const & model );
 		void			moveShip(Map & map, int const input);
 		void			activeEnnemyShip( void );
 
-		bool			getActive( void );
-		int				getX( void );
-		int				getY( void );
-		int				getIndex( void );
+		bool			getActive( void ) const ;
+		int				getX( void ) const ;
+		int				getY( void ) const ;
+		int				getIndex( void ) const ;
+
 		void			setActive( bool active );
 		void			setX( int x );
 		void			setY( int y );

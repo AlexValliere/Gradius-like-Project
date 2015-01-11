@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 23:45:35 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/12 00:03:55 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ Map & Map::operator=(Map const & rhs) {
 		for (x = 0; x < maxX; x++)
 		{
 			this->setContentType(y, x, rhs.getContentType(y, x));
+			this->setContentId(y, x, rhs.getContentId(y, x));
 		}
 	}
 

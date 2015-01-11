@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   EnnemyShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 23:50:49 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/12 00:07:34 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ EnnemyShip::EnnemyShip(void) : AShip() {
 	return ;
 }
 
-// EnnemyShip::EnnemyShip( EnnemyShip const & model ) : AShip() {
-// 	if (DebugEntity::getDebug() == true)
-// 		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
-// 	*this = model;
-// 	return ;
-// }
+EnnemyShip::EnnemyShip( EnnemyShip const & model ) : AShip() {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "EnnemyShip #" << this->_id << " created at x=" << this->_x << "; y=" << this->_y << "." << std::endl;
+	*this = model;
+	return ;
+}
 
 EnnemyShip::EnnemyShip(int x, int y) : AShip(2, x, y)  {
 	if (DebugEntity::getDebug() == true)
@@ -62,13 +62,13 @@ EnnemyShip::EnnemyShip(int x, int y) : AShip(2, x, y)  {
 	return ;
 }
 
-// EnnemyShip &		EnnemyShip::operator=( EnnemyShip const & model ) {
-//	this->_index = model.getIndex();
-// 	this->_x = model.getX();
-// 	this->_y = model.getY();
-// 	this->_active = model.getActive();
-// 	return *this;
-// }
+EnnemyShip &		EnnemyShip::operator=( EnnemyShip const & model ) {
+	this->_index = model.getIndex();
+	this->_x = model.getX();
+	this->_y = model.getY();
+	this->_active = model.getActive();
+	return *this;
+}
 
 EnnemyShip::~EnnemyShip() {
 	if (DebugEntity::getDebug() == true)
@@ -77,19 +77,19 @@ EnnemyShip::~EnnemyShip() {
 	return ;
 }
 
-bool			EnnemyShip::getActive( void ) {
+bool			EnnemyShip::getActive( void ) const {
 	return this->_active;
 }
 
-int				EnnemyShip::getX( void ) {
+int				EnnemyShip::getX( void ) const {
 	return this->_x;
 }
 
-int				EnnemyShip::getY( void ) {
+int				EnnemyShip::getY( void ) const {
 	return this->_y;
 }
 
-int				EnnemyShip::getIndex( void ) {
+int				EnnemyShip::getIndex( void ) const {
 	return this->_index;
 }
 

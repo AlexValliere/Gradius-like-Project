@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PlayerShip.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 23:46:04 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/12 00:05:05 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ class PlayerShip : public AShip {
 		PlayerShip(Map & map, int x, int y);
 		~PlayerShip();
 
-		// PlayerShip &	operator=( PlayerShip const & model );
+		PlayerShip &	operator=( PlayerShip const & model );
 		void			actionShip(Map & map, int const input);
 		void			openFire(Map & map);
 		void			moveProjectiles(Map & map);
 
-		int				getProjectilesIndex( void );
-		Projectile		*getProjectiles( void );
-		int				getId( void);
+		int				getProjectilesIndex( void ) const;
+		Projectile		*getProjectiles( void ) const;
+		int				getId( void) const;
 
 		void		moveProjectiles(Map & map, int * destroyEnnemyId);
 

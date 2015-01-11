@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Projectile.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 14:30:45 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 23:45:34 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/12 00:09:27 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ Projectile::Projectile(int active, int direction, int x, int y) : AMobileEntity(
 
 Projectile::Projectile(Projectile const & object) : AMobileEntity(object) {
 	*this = object;
-
 	return ;
 }
 
@@ -44,7 +43,6 @@ Projectile::Projectile(Projectile const & object) : AMobileEntity(object) {
 Projectile::~Projectile() {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "Projectile #" << this->_id << " destroyed." << std::endl;
-
 	return ;
 }
 

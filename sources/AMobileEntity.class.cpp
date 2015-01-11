@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMobileEntity.class.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 16:12:13 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 23:45:33 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 23:56:23 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ AMobileEntity::AMobileEntity(void) : DebugEntity(), _id(AMobileEntity::_index++)
 	return ;
 }
 
-AMobileEntity::AMobileEntity( AMobileEntity const & model) : DebugEntity(model) {
+AMobileEntity::AMobileEntity( AMobileEntity const & model) : DebugEntity() {
 	if (DebugEntity::getDebug() == true)
 		std::cout << "#" << this->_id << " - AMobileEntity()." << std::endl;
 	*this = model;

@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 20:26:26 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 13:54:56 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,15 @@ Map::Map(void) {
 	}
 }
 
+Map::Map(Map const & object) {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "Map(Map const & object)." << std::endl;
+
+	*this = object;
+
+	return ;
+}
+
 // Map::Map(int height, int width) {
 // 	if (DebugEntity::getDebug() == true)
 // 		std::cout << "Map(" << height << ", " << width << ")." << std::endl;
@@ -50,12 +59,31 @@ void	Map::drawMap(void) {
 		for (x = 0; x < maxX; x++)
 		{
 			move(y, x);
-			if (this->getContentType(y, x) != 0)
+			if (this->getContentType(y, x) == 1)
 				printw(">");
 			else
 				printw(".");
 		}
 	}
+}
+
+Map & Map::operator=(Map const & rhs) {
+	if (DebugEntity::getDebug() == true)
+		std::cout << "Map & Map::operator=(Map const & rhs)." << std::endl;
+
+	int	x, y;
+	int	maxX = 80, maxY = 24;
+
+	for (y = 0; y < maxY; y++)
+	{
+		for (x = 0; x < maxX; x++)
+		{
+			this->setContentType(y, x, rhs.getContentType(y, x));
+			this->setContentId(y, x, rhs.getContentId(y, x));
+		}
+	}
+
+	return *this;	
 }
 
 int		Map::getPlayerPosX(void) const {

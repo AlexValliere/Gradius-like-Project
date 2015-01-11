@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 21:04:53 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 13:48:20 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class PlayerShip : public AShip {
 		PlayerShip(int x, int y);
 		~PlayerShip();
 
-		int		moveShip(Map *map);
+		int		moveShip(Map & map);
 
 		Projectile*	openFire(void);
 

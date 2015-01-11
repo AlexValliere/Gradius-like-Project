@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:31:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 21:10:09 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 13:51:41 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ int		main(void)
 	keypad(stdscr, true);
 	noecho();		
  	curs_set(0);				
- 	start_color();
- 	init_pair(1, COLOR_RED, COLOR_BLUE);
-	wbkgd(stdscr,COLOR_PAIR(1));
+ 	// start_color();
+ 	// init_pair(1, COLOR_RED, COLOR_BLUE);
+	// wbkgd(stdscr,COLOR_PAIR(1));
 	getmaxyx(stdscr, y, x);
 
 	map.drawMap();
@@ -49,16 +49,18 @@ int		main(void)
 
 	while (c != 27)
 	{
+		clear();
 		map.drawMap();
 
-		move(y/2, x/2);
-		printw(" code key : %d, key is %c", c, c);
-		move(y - 1, x - 25);
-		printw("press a key (esc to exit)");
+		mvprintw(y - 2, 1, "Map: ship player pos %dx/%dy", map.getPlayerPosX(), map.getPlayerPosY());
+
+		mvprintw(y - 1, 1, "Ship player pos %dx/%dy", player.getX(), player.getY());
+
+		mvprintw(y / 2, x / 2, " code key : %d, key is %c", c, c);
+		mvprintw(y - 1, x - 25, "press a key (esc to exit)");
 		refresh();
 
-		c = player.moveShip(&map);
-		// getch();
+		c = player.moveShip(map);
 	}
 
     endwin();

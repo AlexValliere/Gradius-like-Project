@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:40 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 20:35:36 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 13:39:23 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 class Map : public DebugEntity {
 	public:
 		Map(void);
+		Map(Map const & object);
 		~Map();
+
+		Map & operator=(Map const & rhs);
 
 		void	drawMap(void);
 		int		getPlayerPosX(void) const;	// Return -1 if not found

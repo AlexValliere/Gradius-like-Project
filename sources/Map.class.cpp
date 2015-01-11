@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 16:43:21 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 19:18:24 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,8 @@ void	Map::drawMap(void) {
 				move(y, x);
 				if (this->getContentType(y, x) == 1)
 					printw(">");
-				else if (this->getContentType(y, x) == 2 || this->getContentType(y, x) == 3 || this->getContentType(y, x) == 4) {
+				else if (this->getContentType(y, x) > 5)
 					printw("<");
-				}
 				else if (this->getContentType(y, x) == 5)
 					printw("o");
 				else

@@ -6,7 +6,7 @@
 #    By: alex <alex@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/07 11:47:18 by alex              #+#    #+#              #
-#    Updated: 2015/01/11 17:42:15 by alex             ###   ########.fr        #
+#    Updated: 2015/01/11 19:25:20 by alex             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRC			=	sources/AMobileEntity.class.cpp \
 				sources/Map.class.cpp \
 				sources/PlayerShip.class.cpp \
 				sources/Projectile.class.cpp \
-				sources/main.cpp
+				sources/main2.cpp
 
 OBJ			= $(SRC:.cpp=.o)
 

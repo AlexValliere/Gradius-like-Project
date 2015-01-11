@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main2.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
+/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/11 14:06:58 by hades             #+#    #+#             */
-/*   Updated: 2015/01/11 17:30:08 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 19:26:09 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int		main(void)
 
 	int			ennemyornot = 6;
 	int			index_ennemy = 0;
-	int			trois = 3;
-	EnnemyShip	tab[3];
+	int			index = 1000;
+	EnnemyShip	tab[1000];
 
 	int			x, y;
 	Map			map;
@@ -42,9 +42,9 @@ int		main(void)
 	noecho();
 	nodelay(stdscr, true);		
  	curs_set(0);				
- 	// start_color();
- 	// init_pair(1, COLOR_RED, COLOR_BLUE);
-	// wbkgd(stdscr,COLOR_PAIR(1));
+ 	start_color();
+ 	init_pair(1, COLOR_BLACK, COLOR_WHITE);
+	wbkgd(stdscr,COLOR_PAIR(1));
 	getmaxyx(stdscr, y, x);
 
 	map.drawMap();
@@ -56,16 +56,24 @@ int		main(void)
 
 	while ((input = getch()) != 27)
 	{
+		clear();
 		player.actionShip(map, input);
-		while ( trois >= 0) {
-			if (tab[trois].getActive()) {
-				tab[trois].moveShip(map, input);
+		while ( index >= 0) {
+			if ( tab[1000].getActive() ) {
+    			clear();
+    			mvprintw(12, 40, "YOU WIN !");
+    			sleep(3);
+    			endwin();
+    			return (0);
 			}
-			trois--;
+			if (tab[index].getActive()) {
+				tab[index].moveShip(map, input);
+			}
+			index--;
 		}
-		trois = 3;
+		index = 1000;
 		if ( ennemyornot == 0 ) {
-			if (index_ennemy < 3) {
+			if (index_ennemy < 1000) {
 				tab[index_ennemy].setActive(true);
 				index_ennemy++;
 			}

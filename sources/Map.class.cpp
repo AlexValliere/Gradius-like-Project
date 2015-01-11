@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Map.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:35 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 19:18:24 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 19:42:05 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,16 @@ void	Map::drawMap(void) {
 			for (x = 0; x < maxX; x++)
 			{
 				move(y, x);
-				if (this->getContentType(y, x) == 1)
+				if (y == 23)
+					printw("=");
+				else if (this->getContentType(y, x) == 1)
 					printw(">");
 				else if (this->getContentType(y, x) > 5)
 					printw("<");
 				else if (this->getContentType(y, x) == 5)
 					printw("o");
 				else
-					printw(".");
+					printw(" ");
 			}
 		}
 	}

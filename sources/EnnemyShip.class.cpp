@@ -6,7 +6,7 @@
 /*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 18:38:50 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 18:55:27 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ EnnemyShip::EnnemyShip(void) : AShip(), _projectilesIndex(0) {
 
 	this->setActive(false);
 
-	this->_index = _nbr + 2;
+	this->_index = _nbr + 6;
 	_nbr++;
 
 	return ;

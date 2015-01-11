@@ -6,7 +6,7 @@
 /*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 18:21:40 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:31:48 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 18:56:18 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@ class Map : public DebugEntity {
 
 	private:
 		int		_map[25][81];		// _map[42][42][0] = 0 - Empty
-									//					1 - PlayerShip
-									//					2 - EnnemyShip1
-									//					3 - EnnemyShip2
-									//					4 - EnnemyShip3
+									// _map[42][42][0] = 5 - projectil
+									// _map[42][42][0] = 5+ - ennemy
 									//					
 };
 

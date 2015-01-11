@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 17:31:40 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 17:39:38 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	PlayerShip::openFire(Map & map) {
 		// }
 		// mvprintw(21, 1, "PlayerShip #%d opened fire from x=%d;y=%d creating a proojectile at x=%d;y=%d.", this->_id, this->_x, this->_y, this->_projectiles[this->_projectilesIndex].getX(), this->_projectiles[this->_projectilesIndex].getY());
 
-		this->_projectilesIndex++;
+		// this->_projectilesIndex++;
 	}
 	// else
 	// {

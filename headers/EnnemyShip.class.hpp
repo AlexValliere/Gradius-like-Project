@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   EnnemyShip.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:36 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 15:07:10 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 15:18:01 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "AShip.class.hpp"
 # include "Projectile.class.hpp"
+# include "Map.class.hpp"
 
 class EnnemyShip : public AShip {
 	public:
@@ -22,7 +23,8 @@ class EnnemyShip : public AShip {
 		EnnemyShip(int x, int y);
 		~EnnemyShip();
 
-		void	openFire(void);
+		virtual void	openFire(void);
+		virtual void	moveShip(Map & map, int const input);
 
 	protected:
 		int			_id;

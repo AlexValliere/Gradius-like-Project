@@ -6,7 +6,7 @@
 /*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:59:55 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 15:03:17 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ class PlayerShip : public AShip {
 		~PlayerShip();
 
 		virtual void	moveShip(Map & map, int const input);
-
-		void			openFire(void);
+		virtual void	openFire(void);
 
 	protected:
 		static int	_index;

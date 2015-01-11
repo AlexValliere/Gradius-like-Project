@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   EnnemyShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/10 20:37:22 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 15:10:15 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,17 @@ EnnemyShip::~EnnemyShip() {
 	return ;
 }
 
-Projectile*	EnnemyShip::openFire(void) {
-	Projectile	*projectile = new Projectile(this->_x - 1, this->_y);
+void	EnnemyShip::openFire(void) {
+	// Projectile	*projectile = new Projectile(this->_x - 1, this->_y);
 
-	if (DebugEntity::getDebug() == true)
-		std::cout << "EnnemyShip #" << this->_id << " opened fire from x=" << this->_x << "; y=" << this->_y << " creating a projectile at x=" << projectile->getX() << "; y=" << projectile->getY() << "." << std::endl;
+	// if (DebugEntity::getDebug() == true)
+	// 	std::cout << "EnnemyShip #" << this->_id << " opened fire from x=" << this->_x << "; y=" << this->_y << " creating a projectile at x=" << projectile->getX() << "; y=" << projectile->getY() << "." << std::endl;
 
-	return projectile;
+}
+
+void EnnemyShip::moveShip(Map & map, int const input) {
+	int i = input;
+	i = i;
+
+	map = map;
 }

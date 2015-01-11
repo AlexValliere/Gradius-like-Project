@@ -6,7 +6,7 @@
 /*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 17:39:38 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 17:52:45 by alex             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,9 +97,9 @@ void	PlayerShip::openFire(Map & map) {
 
 	if (canOpenFire)
 	{
-		this->_projectiles[0].setDirection(1);
-		this->_projectiles[0].setX(this->getX() + 1);
-		this->_projectiles[0].setX(this->getY());
+		this->_projectiles[this->_projectilesIndex].setDirection(1);
+		this->_projectiles[this->_projectilesIndex].setX(this->getX() + 1);
+		this->_projectiles[this->_projectilesIndex].setY(this->getY());
 		map.setContentType(this->getY(), this->getX() + 1, 5);
 		map.setContentId(this->getY(), this->getX() + 1, -1);
 
@@ -109,7 +109,7 @@ void	PlayerShip::openFire(Map & map) {
 		// }
 		// mvprintw(21, 1, "PlayerShip #%d opened fire from x=%d;y=%d creating a proojectile at x=%d;y=%d.", this->_id, this->_x, this->_y, this->_projectiles[this->_projectilesIndex].getX(), this->_projectiles[this->_projectilesIndex].getY());
 
-		// this->_projectilesIndex++;
+		this->_projectilesIndex++;
 	}
 	// else
 	// {
@@ -121,13 +121,13 @@ void	PlayerShip::openFire(Map & map) {
 }
 
 void	PlayerShip::moveProjectiles(Map & map) {
-	// int	i;
+	int	i;
 	// int j;
 
-	// if (this->_projectilesIndex >= 0)
-	// {
-	// 	for (i = 0; i < this->_projectilesIndex; i++)
-	// 	{
+	if (this->_projectilesIndex >= 0)
+	{
+		for (i = 0; i < this->_projectilesIndex; i++)
+		{
 			// Si le projectile est à mouvement positif sur l'axe x
 			// if (this->_projectiles[i].getDirection() == 1)
 			// {
@@ -145,15 +145,15 @@ void	PlayerShip::moveProjectiles(Map & map) {
 				// }
 				// else // Sinon on déplace le projectile
 				// {
-					map.setContentType((this->_projectiles[0]).getY(), (this->_projectiles[0]).getX(), 0);
-					map.setContentId((this->_projectiles[0]).getY(), (this->_projectiles[0]).getX(), -1);
+					map.setContentType((this->_projectiles[i]).getY(), (this->_projectiles[i]).getX(), 0);
+					map.setContentId((this->_projectiles[i]).getY(), (this->_projectiles[i]).getX(), -1);
 
-					// this->_projectiles[i].moveOnX(3);
+					this->_projectiles[i].moveOnX(3);
 
-					// map.setContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX(), 5);
-					// map.setContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX(), this->_projectiles[i].getId());
+					map.setContentType(this->_projectiles[i].getY(), this->_projectiles[i].getX(), 5);
+					map.setContentId(this->_projectiles[i].getY(), this->_projectiles[i].getX(), this->_projectiles[0].getId());
 				// }
 	// 		}
-	// 	}
-	// }
+		}
+	}
 }

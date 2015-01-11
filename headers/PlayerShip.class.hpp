@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PlayerShip.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:11:00 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:39:22 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 14:59:55 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ class PlayerShip : public AShip {
 		PlayerShip(int x, int y);
 		~PlayerShip();
 
-		void		moveShip(Map & map, int const input);
+		virtual void	moveShip(Map & map, int const input);
 
-		void		openFire(void);
+		void			openFire(void);
 
 	protected:
 		static int	_index;

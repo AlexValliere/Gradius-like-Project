@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PlayerShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:10:51 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:36:17 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 15:00:36 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ PlayerShip::~PlayerShip() {
 	return ;
 }
 
-void	PlayerShip::moveShip(Map & map, int const input) {
+virtual void	PlayerShip::moveShip(Map & map, int const input) {
 
 	// if (*input == 100 || *input == 261) /* right*/
 	// {

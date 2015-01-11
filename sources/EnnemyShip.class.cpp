@@ -3,17 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   EnnemyShip.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alex <alex@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: qde-vial <qde-vial@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 15:37:29 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 20:59:06 by alex             ###   ########.fr       */
+/*   Updated: 2015/01/11 21:21:42 by qde-vial         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <ncurses.h>
+#include <unistd.h>
 #include <stdlib.h>
 #include "../headers/EnnemyShip.class.hpp"
+#include "../headers/PlayerShip.class.hpp"
 
 int			EnnemyShip::_nbr = 0;
 
@@ -107,6 +109,8 @@ void EnnemyShip::moveShip(Map & map, int const input) {
 		this->setX(0);
 	else
 		this->setX(this->getX() - 1);
+	if (map.getContentType(this->getY(), this->getX()) == 1)
+		ft_gameOver();
 	map.setContentType(this->getY(), this->getX(), this->getIndex());
 }
 

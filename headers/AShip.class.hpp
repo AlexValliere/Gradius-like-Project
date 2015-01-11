@@ -6,7 +6,7 @@
 /*   By: hades <hades@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/10 13:46:02 by alex              #+#    #+#             */
-/*   Updated: 2015/01/11 14:41:47 by hades            ###   ########.fr       */
+/*   Updated: 2015/01/11 14:43:24 by hades            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class AShip : public AMobileEntity {
 		AShip(int type, int x, int y);
 		~AShip();
 
-		virtual Projectile*	openFire(void) = 0;
+		virtual void	openFire(void) = 0;
 };
 
 #endif

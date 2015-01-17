@@ -1,2 +1,2 @@
 # ft_retro
-Le déplacement du vaisseau du joueur est buggé
+This is a 48 hours project to implement a simplistic shoot-em-up-style game in a terminal. For those of you who don’t know what that kind of game is , have a look at Gradius, R-Type, etc...
